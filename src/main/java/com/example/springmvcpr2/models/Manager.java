@@ -1,6 +1,9 @@
 package com.example.springmvcpr2.models;
 
+import java.util.Objects;
+
 public class Manager {
+    //доробити
     private String name;
     private int id;
 
@@ -32,5 +35,26 @@ public class Manager {
     public void enterManuallyNewCourse(){
         float euro;
         float dollar;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Manager manager = (Manager) o;
+        return id == manager.id && Objects.equals(name, manager.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, id);
+    }
+
+    @Override
+    public String toString() {
+        return "Manager{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                '}';
     }
 }

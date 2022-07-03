@@ -3,6 +3,7 @@ package com.example.springmvcpr2.models;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 
 public class Avto {
 
@@ -64,5 +65,29 @@ public class Avto {
 
     public void setCurrency(int currency) {
         this.currency = currency;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Avto avto = (Avto) o;
+        return id == avto.id && number == avto.number && Float.compare(avto.price, price) == 0 && currency == avto.currency && Objects.equals(marka, avto.marka);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(marka, id, number, price, currency);
+    }
+
+    @Override
+    public String toString() {
+        return "Avto{" +
+                "marka='" + marka + '\'' +
+                ", id=" + id +
+                ", number=" + number +
+                ", price=" + price +
+                ", currency=" + currency +
+                '}';
     }
 }

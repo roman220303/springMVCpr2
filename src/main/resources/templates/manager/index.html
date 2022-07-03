@@ -6,18 +6,16 @@
 </head>
 <body>
 
-<div th:each="avto1 : ${avto}">
-    <a th:href="@{/seller/{id}(id=${avto1.getId()})}" th:text="${avto1.getMarka()+ ', ' + avto1.getCurrency() + ', ' + avto1.getNumber()+ ', ' + avto1.getPrice()}">user</a>
+<div th:each="currency1 : ${currency}">
+    <a th:href="@{/manager/{id}(id=${currency1.getId()})}" th:text="${currency1.getValue() + ' - ' + currency1.getName()}">user</a>
 </div>
+
+<hr/>
 <div class="container">
     <form action="/" method="POST">
         <button type="submit">Logout</button>
     </form>
 </div>
 <br/>
-<hr/>
-
-<a href="/seller/new">Create new person</a>
-
 </body>
 </html>

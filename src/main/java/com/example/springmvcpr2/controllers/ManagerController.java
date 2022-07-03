@@ -20,13 +20,13 @@ public class ManagerController {
         this.currencyDAO = currencyDAO;
     }
 
-    /*@GetMapping()
+    @GetMapping()
     public String index(Model model) {
         model.addAttribute("currency", currencyDAO.index());
         return "manager/index";
-    }*/
+    }
 
-    /*@GetMapping("/{id}/edit")
+    @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
         model.addAttribute("currency", currencyDAO.show(id));
         return "manager/edit";
@@ -37,6 +37,6 @@ public class ManagerController {
         if(bindingResult.hasErrors()) return "manager/edit";
         currencyDAO.change(id, currency);
         return "redirect:/manager";
-    }*/
+    }
 
 }
